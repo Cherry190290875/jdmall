@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<meta charset="utf-8" name="" content=""/>
+		<title></title>
+	</head>
+	<body>
+		<div id="testDemo" style="background-color: #ddd;width: 100px;height: 200px;">
+			测试图层
+		</div>
+		<img src="img/1.png" alt="人民币1"  id="img1" width="50px"/>
+		<img src="img/2.png" alt="人民币2"  id="img2" width="50px"/>
+		<img src="img/3.png" alt="人民币3"  id="img3" width="50px"/>
+		<img src="img/4.png" alt="人民币4"  id="img4" width="50px"/>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+			$('<div style=\"background-color: red;width: 100px;height: 100px;\">动态创建图层</div>').appendTo(testDemo)
+			
+			$('img').each(function(index){
+				alert("index:"+index+",alt:"+this.alt+",id:"+this.id)
+				console.log($(this).attr('src'))
+				//alert("index:" + index + ", id:" + this.id + ", alt:" + this.alt);
+			})
+		</script>
+	</body>
+</html>

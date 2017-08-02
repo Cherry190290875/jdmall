@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<meta charset="utf-8" name="" content=""/>
+		<title>工具函数</title>
+	</head>
+	<body>
+		<div></div>
+		<p></p>
+		<span></span>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script>
+			var arr = ['a','b','c','d','e']
+			arr=jQuery.map(arr,function(n,i){
+				alert(n)
+				return (n.toUpperCase()+i)
+			})
+			$('p').text(arr.join(','))
+		</script>
+	</body>
+</html>

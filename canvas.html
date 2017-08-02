@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<meta charset="utf-8" name="" content=""/>
+		<title>canvas 绘图</title>
+	</head>
+	<body>
+		<canvas id="demoCanvas" width="500" height="500">
+			<p>
+				请使用支持HTML5的浏览器查看本实例
+			</p>
+		</canvas>
+		<script>
+			var canvasDom = document.getElementById("demoCanvas");
+			var context = canvasDom.getContext('2d');
+			context.strokeStyle="red";
+			context.strokeRect(10,10,190,100);
+			context.fillStyle = "blue";
+			context.fillRect(110,110,100,100)
+		</script>
+	</body>
+</html>

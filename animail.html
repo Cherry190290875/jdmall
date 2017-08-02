@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<meta charset="utf-8" name="" content=""/>
+		<title>jQuery 动画</title>
+	</head>
+	<body>
+		<div id="btShow" style="margin-left: 200px;margin-top:100px;cursor: pointer;">显示文字效果</div>
+		
+		<div id="divPop" style="background-color: red;color:#fff;border: 1px solid #ddd;position:absolute;display: none;width: 300px;height: 100px;">
+			<div style="text-align: center;">pop div</div>
+		</div>
+		
+		<div id="down" style="width: 300px;height: 100px;background-color: red;color:#fff;position: absolute;border: 1px solid #ddd;">
+			<div style="text-align: center;">从屏幕上方掉落下方并且消失</div>
+		</div>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script>
+			var speed = 500;
+			
+			$('#btShow').click(function(event){
+				//取消事件冒泡
+				event.stopPropagation();
+				
+				if ($('#divPop').css('display') == 'none'){
+				$('#divPop').fadeIn(speed);
+			}else {
+				$('#divPop').fadeOut(speed)
+			}
+				var offset = $(event.target).offset();
+				$('#divPop').css({top:offset.top+$(event.target).height()+'px',left:offset.left})
+				$('#divPop').show(speed);
+				$('#divPop').fadeTo(0,0.66)
+				
+			})
+			
+			$(document).click(function(){
+				$('#divPop').hide(speed);
+			})
+			
+			$('#divPop').click(function(){
+				$('#divPop').hide(speed);
+			})
+			
+		$(document).ready(function(){
+			$('#down').animate(
+				{
+				'opacity':'hide',
+				'top':$(window).height()-$('#down').height()-$('#down').position().top,
+				'left':'100%',
+				'font-size':'200px',
+				'width':$(window).width()-300,
+				'height':$(window).height()-100
+				},
+				2000,
+				function(){$('#down').hide()}
+			)
+		})
+		</script>
+	</body>
+</html>

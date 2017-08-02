@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<meta charset="utf-8" name="" content=""/>
+		<title>全选、全不选、多选</title>
+	</head>
+	<body>
+		<ul id="list">
+			<li><label ><input type="checkbox" value="1" />1.番茄</label></li>
+			<li><label ><input type="checkbox" value="2" />2.黄瓜</label></li>
+			<li><label ><input type="checkbox" value="3" />3.青椒</label></li>
+			<li><label ><input type="checkbox" value="4" />4.蒜苗</label></li>
+			<li><label ><input type="checkbox" value="5" />5.韭菜</label></li>
+		</ul>
+		<input type="checkbox"  id="All"/>
+		<input type="button" value="全选" id="selectAll" />
+		<input type="button" value="全不选" id="unSelect" />
+		<input type="button" value="反选" id="reverse" />
+		<input type="button" value="获取选中的值" id="getValue" />
+		
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script>
+			//全选或全不选
+			$('#All').click(function(){
+				if(this.checked) {
+					$('#list :checkbox').prop('checked',true)
+				}else {
+					$('#list :checkbox').prop('checked',false)
+				}
+			})
+			
+			//全选
+			$('#selectAll').click(function(){
+				$('#list :checkbox').prop('checked',true);
+				$('#All').prop('checked',true)
+			})
+			
+			//全不选
+			$('#unSelect').click(function(){
+				$('#list :checkbox').prop('checked',false);
+				$('#All').prop('checked',false)
+			})
+			
+			//反选
+			$('#reverse').click(function(){
+				$('#list :checkbox').each(function(){
+					$(this).prop('checked',!$(this).prop('checked'))
+				})
+				if ($('#list :checkbox').length >$('#list :checkbox:checked').length) {
+					$('#All').prop('checked',false)
+				}else{
+					$('#All').prop('checked',true)
+				}
+			})
+
+			//获取得到的值
+			var arr = []
+			var i = -1;
+			$('#getValue').click(function(){
+				$('#list :checkbox:checked').each(function(){
+					i ++;
+					arr[i]=$(this).val();
+				})
+				console.log(arr)
+			})
+			
+		</script>
+	</body>
+</html>

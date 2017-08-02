@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"  />
+		<title>增强型表单标签</title>
+	</head>
+	<body>
+		<article>
+			<header>
+				<hgroup>
+					<h1>这是测试用的</h1>
+					<h2>革新</h2>
+				</hgroup>
+				<time datetime="2017-07-18">2017-07-18</time>
+			</header>
+			<p>文章内容</p>
+		</article>
+		
+		<form oninput = "output.value=parseInt(range.value)">
+			<input type="range" min="0" max="10" step="5" name="range" value="0" />
+			<output name="output">0</output>
+		</form>
+		<input type="date" name="datedemo" />
+		<br />
+		input标签自动完成功能
+		<input type="text" autocomplete="on"  name="demoAutoComplete" list="autoNames"/>
+		<datalist id="autoNames">
+			<option value="实验楼"></option>
+			<option value="HTML5"></option>
+			<option value="input标签"></option>
+		</datalist>
+		
+		<fieldset style="margin-top: 50px;text-align: center;">
+			<legend>表单演示：最新opera浏览器支持效果良好</legend>
+			<form action="" oninput="output.value=parseInt(range.value)" id="form1" method="post">
+				<input type="text" autofocus="autofocus" required="required" pattern="\d+" name="auto" placeholder="必填项测试" /><br />
+				<input type="number" name="demoNumber" min="1" max="100" step="2" /><br />
+				<input type="email" placeholder="请输入邮箱" name="email"/><br />
+				<input type="url" placeholder="请输入正确的网址"/><br />
+				<br />
+				日期：<input type="date" name="time" /><br />
+				颜色：<input type="color" name="color"/>
+				<br />
+				<input type="range" min="0" max="50" name="range" step="5" value="0" />
+				<output name="output">0</output>
+				<br />
+				<input type="submit" value="提交表单" />
+				
+			</form>
+			表单外的input标签：
+			<input type="text" form="form1" name="demo" />
+		</fieldset>
+		
+	</body>
+</html>

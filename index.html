@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>table</title>
+	</head>
+	<body>
+		<a href="http://www.baidu.com" title="你是好人">实验楼</a>
+		<table align="center" border="1">
+			<tr>
+				<td colspan="2">first</td>
+				<td>second</td>
+				<td>third</td>
+			</tr>
+			<tr>
+				<td rowspan="2">1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+			<div class="div" id="div">
+				<input type="text"  id="inp" value="10"/>
+			</div>
+		</table>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script>
+			var i = 0;
+			do{
+				i++;
+				document.write(i+"<br>")
+			}while(i<3)
+			
+			$('#inp').blur(function(){
+				alert('input cannot be empty')
+			})
+			var Value =$('#inp').val();
+			if(Value == ''){
+				alert('input cannot be empty')
+			}
+			
+			function student(name,age) {
+				this.name =name;
+				this.age =age;
+				this.study = function(){
+					alert('studying')
+				};
+				this.eat = function(){
+					alert('eating')
+				}
+			}
+			var student1 = new student('Tom','19');
+			document.write(student1.name+'<br>');
+			var student2 = new student('Jack','25');
+			with(student2) {
+				var x = name;
+				var y = age;
+				//study();
+				//eat();
+			}
+			document.write(student2.name+'<br>');
+			
+			var String = "wo shi ni de shui ,ni shi wo de shui ";
+			document.write(String.charAt(0)+'<br>') //charAt()取得第n位的单个字符；
+			document.write(String.charCodeAt(0)+'<br>') //charCodeAt()第n位的单个字符ASCII
+			
+			var Num = 5.468;
+			document.write(Math.ceil(Num)+'<br>'); //大于等于X的最小整数
+			
+			console.log($('.div')[0].getAttribute('id'))
+			console.log($('.div')[0].setAttribute('class','div2'));
+			
+			
+			console.log(document.getElementById('inp').parentNode.getAttribute("class"))
+			
+			
+			var mydiv = document.createElement("div");
+			mydiv.style.height="100px";
+			mydiv.style.width = "200px";
+			mydiv.style.background="#ff0000";
+			document.getElementsByTagName('body')[0].appendChild(mydiv)
+		</script>
+	</body>
+</html>
